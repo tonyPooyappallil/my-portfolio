@@ -8,7 +8,7 @@ import { Zoom } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100vh",
+    height: "",
     width: "100%",
   },
 
@@ -26,15 +26,15 @@ const Resume = () => {
   return (
     <Zoom in timeout={{ enter: 500, exit: 300 }}>
       <Container>
-      <Grid container className={classes.root}>
-        <Grid item className={classes.rootItems} md={6} lg={6} sm={6} xs={12}>
-          <Education classes={classes.paper} />
-          <WorkExperience classes={classes.paper} />
+        <Grid container className={classes.root}>
+          <Grid item className={classes.rootItems} md={6} lg={6} sm={6} xs={12}>
+            <Education classes={classes.paper} />
+            <WorkExperience classes={classes.paper} />
+          </Grid>
+          <Grid item className={classes.rootItems} md={6} lg={6} sm={6} xs={12}>
+            <ResumeSkills />
+          </Grid>
         </Grid>
-        <Grid item className={classes.rootItems} md={6} lg={6} sm={6} xs={12}>
-          <ResumeSkills />
-        </Grid>
-      </Grid>
       </Container>
     </Zoom>
   );

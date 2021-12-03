@@ -23,10 +23,12 @@ const useStyles = makeStyles((theme) => ({
   timelineContent: {
     flex: 3,
     padding: "6px 16px",
+    margin: "15px",
   },
   paper: {
-    padding: "3px 6px",
+    // padding: "3px 6px",
     borderRadius: "12px",
+    padding: "15px",
   },
   missingOppositeContent: {
     "&:before": {
@@ -44,7 +46,11 @@ const Education = (props) => {
     <Grid container className={classes.root}>
       {isMobile ? (
         <Timeline>
-          <Typography variant="h6" align="center" style={{fontWeight:'bold'}}>
+          <Typography
+            variant="h6"
+            align="center"
+            style={{ fontWeight: "bold" }}
+          >
             Education
           </Typography>
           {personalInfo.education.map((school) => (
@@ -63,10 +69,16 @@ const Education = (props) => {
                   </Box>
                 </Typography>
                 <Paper elevation={3} className={classes.paper}>
-                  <Typography variant="body1" style={{fontWeight:'bold'}}>
+                  <Typography variant="body1" style={{ fontWeight: "bold" }}>
                     {school.schoolName}
                   </Typography>
-                  <Typography variant="body2" style={{fontWeight:'bold'}} color='primary'>{school.degree}</Typography>
+                  <Typography
+                    variant="body2"
+                    style={{ fontWeight: "bold" }}
+                    color="primary"
+                  >
+                    {school.degree}
+                  </Typography>
                   <Typography variant="body2">{school.speciality}</Typography>
                 </Paper>
               </TimelineContent>
@@ -75,7 +87,11 @@ const Education = (props) => {
         </Timeline>
       ) : (
         <Timeline>
-          <Typography variant="h5" align="center" style={{fontWeight:'bold'}}>
+          <Typography
+            variant="h5"
+            align="center"
+            style={{ fontWeight: "bold" }}
+          >
             Education
           </Typography>
           {personalInfo.education.map((school) => (
@@ -88,17 +104,23 @@ const Education = (props) => {
                 </Typography>
               </TimelineOppositeContent>
               <TimelineSeparator>
-                <TimelineDot color="primary" variant='outlined'>
+                <TimelineDot color="primary" variant="outlined">
                   <School />
                 </TimelineDot>
                 <TimelineConnector />
               </TimelineSeparator>
               <TimelineContent classes={{ root: classes.timelineContent }}>
                 <Paper elevation={3} className={classes.paper}>
-                  <Typography variant="body1" style={{fontWeight:'bold'}} >
+                  <Typography variant="body1" style={{ fontWeight: "bold" }}>
                     {school.schoolName}
                   </Typography>
-                  <Typography variant="body2" style={{fontWeight:'bold'}} color='primary'>{school.degree}</Typography>
+                  <Typography
+                    variant="body2"
+                    style={{ fontWeight: "bold" }}
+                    color="primary"
+                  >
+                    {school.degree}
+                  </Typography>
                   <Typography variant="body1">{school.speciality}</Typography>
                 </Paper>
               </TimelineContent>

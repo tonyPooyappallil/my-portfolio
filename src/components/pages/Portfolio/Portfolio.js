@@ -1,19 +1,29 @@
-import { Box, CardHeader, Container, Grid, Typography, Zoom } from "@material-ui/core";
+import {
+  Box,
+  CardHeader,
+  Container,
+  Grid,
+  Typography,
+  Zoom,
+  Button,
+} from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardMedia from "@material-ui/core/CardMedia";
+import Paper from "@material-ui/core/Paper";
 import IconButton from "@material-ui/core/IconButton";
 import { makeStyles } from "@material-ui/core/styles";
+//import { useMediaQuery } from "@material-ui/core";
 import GitHub from "@material-ui/icons/GitHub";
 import OpenInNewIcon from "@material-ui/icons/OpenInNew";
-import React from "react";
-import { personalInfo } from "../../../assets/data/personalInfo"
-
+import React, { useState } from "react";
+import { personalInfo } from "../../../assets/data/personalInfo";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 const useStyles = makeStyles({
   root: {
-    height: "100vh",
+    // height: "100vh",
     justifyContent: "flex-start",
     flexDirection: "column",
     flexWrap: "nowrap",
@@ -21,13 +31,12 @@ const useStyles = makeStyles({
 
   cardRoot: {
     width: 300,
-    minHeight: 300,
+    minHeight: 200,
     margin: "20px",
-   
   },
-  cardActionBtn:{
-    display:'flex',
-    justifyContent:'space-between'
+  cardActionBtn: {
+    display: "flex",
+    justifyContent: "space-between",
   },
 
   media: {
@@ -41,9 +50,9 @@ const useStyles = makeStyles({
   titleHeader: {
     display: "flex",
     justifyContent: "center",
-    fontWeight:700
+    fontWeight: 700,
   },
- 
+
   cardContainer: {
     display: "flex",
     justifyContent: "center",
@@ -52,53 +61,86 @@ const useStyles = makeStyles({
 });
 
 const Portfolio = () => {
+  const [projDet, setProjDet] = useState(false);
+  //console.log(projDet);
   const classes = useStyles();
   return (
     <>
-      <Zoom  in timeout={{enter:500, exit:500}}>
-        <Container>
-        <Grid container className={classes.root}>
-          <Typography variant ='h4'className={classes.titleHeader}>
-            Portfolio
-            </Typography>
-          <Box className={classes.cardContainer}>
-            {personalInfo.projects.map((project) => (
-              <Card
-                className={classes.cardRoot}
-                elevation={3}
-                key={project.title}
-              >
-                <CardHeader title={project.title} />
-
-                <CardActionArea>
-                  <CardMedia
-                    className={classes.media}
-                    image={project.image}
-                    title={project.title}
-                  />
-                </CardActionArea>
-                <CardActions className={classes.cardActionBtn}>
-                  <IconButton
-                    size="small"
-                    color="primary"
-                    href={project.url}
-                    target="_blank"
+      <Zoom in timeout={{ enter: 500, exit: 500 }}>
+        <Container p={20}>
+          {" "}
+          <Grid container className={classes.root}>
+            <Typography variant="h4" className={classes.titleHeader}>
+              Projects
+            </Typography>{" "}
+            <Box className={classes.cardContainer}>
+              {personalInfo.projects.map((project) => (
+                <Card
+                  className={classes.cardRoot}
+                  elevation={3}
+                  key={project.title}
+                >
+                  <CardHeader title={project.title} />
+                  <CardActionArea>
+                    <CardMedia
+                      className={classes.media}
+                      image={project.image}
+                      title={project.title}
+                    />
+                  </CardActionArea>
+                  <Grid
+                    container
+                    spacing={0}
+                    direction="column"
+                    alignItems="center"
+                    justifyContent="center"
                   >
-                    <OpenInNewIcon fontSize="small" />
-                  </IconButton>
-                  <IconButton
-                    size="small"
-                    color="primary"
-                    href={project.githubUrl}
-                    target="_blank"
-                  >
-                    <GitHub/>
-                  </IconButton>
-                </CardActions>
-              </Card>
-            ))}
-          </Box>
-        </Grid>
+                    <Button
+                      style={{
+                        maxWidth: "60px",
+                        maxHeight: "15px",
+                        minWidth: "30px",
+                        minHeight: "15px",
+                      }}
+                      size="small"
+                      variant="contained"
+                      rounded="true"
+                      color="secondary"
+                      onClick={() => setProjDet((props) => !props)}
+                    >
+                      <KeyboardArrowDownIcon></KeyboardArrowDownIcon>
+                    </Button>
+                  </Grid>{" "}
+                  <Grid component={Box} display={projDet ? "block" : "none"}>
+                    <Paper elevation={3}>
+                      <Typography style={{ margin: "10px" }}>
+                        {" "}
+                        {project.description}
+                      </Typography>
+                    </Paper>
+                  </Grid>
+                  <CardActions className={classes.cardActionBtn}>
+                    <IconButton
+                      size="small"
+                      color="primary"
+                      href={project.url}
+                      target="_blank"
+                    >
+                      <OpenInNewIcon fontSize="small" />
+                    </IconButton>
+                    <IconButton
+                      size="small"
+                      color="primary"
+                      href={project.githubUrl}
+                      target="_blank"
+                    >
+                      <GitHub />
+                    </IconButton>
+                  </CardActions>
+                </Card>
+              ))}
+            </Box>
+          </Grid>
         </Container>
       </Zoom>
     </>

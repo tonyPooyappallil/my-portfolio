@@ -5,16 +5,17 @@ import {
   Paper,
   Typography,
   Chip,
-  Link,
+  // Link,
   Box,
-  List,
+  //List,
 } from "@material-ui/core";
-import OpenInNewIcon from "@material-ui/icons/OpenInNew";
+//import OpenInNewIcon from "@material-ui/icons/OpenInNew";
 import TimelineDot from "@material-ui/lab/TimelineDot";
 import { makeStyles, useTheme } from "@material-ui/core";
 import { useMediaQuery } from "@material-ui/core";
-import clsx from "clsx";
+//import clsx from "clsx";
 import { personalInfo } from "../../../assets/data/personalInfo";
+//import Portfolio from "../Portfolio/Portfolio";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,16 +44,22 @@ const useStyles = makeStyles((theme) => ({
   },
 
   stylePaper: {
-    padding: "2px 5px",
-    margin: "0 10px 10px 10px ",
+    // padding: "2px 5px",
+    // margin: "0 10px 10px 10px ",
     flex: 1,
     borderRadius: 12,
+    margin: "25px",
+    padding: "15px",
   },
   dot: {
     marginRight: "8px",
   },
   chip: {
-    margin: 4,
+    // margin: 4,
+    margin: "10px",
+    padding: "15px",
+    border: "2px solid",
+    fontWeight: "bold",
   },
 
   missingOppositeContent: {
@@ -78,6 +85,14 @@ const ResumeSkills = (props) => {
           <Typography variant="h6" style={{ fontWeight: "bold" }}>
             Programming Skills
           </Typography>
+
+          {/* <FontAwesomeIcon icon={faHtml5} />
+          <FontAwesomeIcon icon={faCss3} />
+          <FontAwesomeIcon icon={faJs} />
+          <FontAwesomeIcon icon={faMongoDb} />
+          <FontAwesomeIcon icon={faNodeJs} />
+          <FontAwesomeIcon icon={faReactJs} /> */}
+
           {personalInfo.skills.codingSkills.map((skill) => (
             <Box key={skill.id} className={classes.items}>
               {skill.languages.map((lang) => (
@@ -92,7 +107,7 @@ const ResumeSkills = (props) => {
             </Box>
           ))}
         </Paper>
-        <Paper className={classes.stylePaper} elevation={3}>
+        {/* <Paper className={classes.stylePaper} elevation={3}>
           <Typography variant="h6" style={{ fontWeight: "bold" }}>
             Languages
           </Typography>
@@ -110,14 +125,18 @@ const ResumeSkills = (props) => {
               </ListItem>
             </Grid>
           ))}
-        </Paper>
+        </Paper> */}
 
         <Paper className={classes.stylePaper} elevation={3}>
           <Typography variant="h6" style={{ fontWeight: "bold" }}>
             Soft Skills
           </Typography>
           {personalInfo.skills.softSkills.map((skill) => (
-            <ListItem dense key={`${skill} ${Math.random()}`}>
+            <ListItem
+              style={{ margin: "10px" }}
+              dense
+              key={`${skill} ${Math.random()}`}
+            >
               <TimelineDot
                 variant="outlined"
                 color="primary"
@@ -128,7 +147,7 @@ const ResumeSkills = (props) => {
           ))}
         </Paper>
 
-        <Paper className={classes.stylePaper} elevation={3}>
+        {/* <Paper className={classes.stylePaper} elevation={3}>
           <Typography variant="h6" style={{ fontWeight: "bold" }}>
             Courses & Certifications
           </Typography>
@@ -153,7 +172,7 @@ const ResumeSkills = (props) => {
                   </Link>
                 </Typography>
               </ListItem>
-              <ListItem className={!isMobile ? classes.coursesCertificate :''}>
+              <ListItem className={!isMobile ? classes.coursesCertificate : ""}>
                 <Typography variant="subtitle2" color="secondary">
                   <Link
                     href={course.certificate}
@@ -168,8 +187,8 @@ const ResumeSkills = (props) => {
               </ListItem>
             </List>
           ))}
-        </Paper>
-        <Paper className={clsx(classes.stylePaper)} elevation={3}>
+        </Paper> */}
+        {/* <Paper className={clsx(classes.stylePaper)} elevation={3}>
           <Box>
             <Typography variant="h6" style={{ fontWeight: "bold" }}>
               Hobbies
@@ -186,7 +205,7 @@ const ResumeSkills = (props) => {
               />
             ))}
           </Box>
-        </Paper>
+        </Paper> */}
       </Grid>
     </>
   );

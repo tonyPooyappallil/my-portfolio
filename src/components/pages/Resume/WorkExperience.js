@@ -21,11 +21,12 @@ const useStyles = makeStyles((theme) => ({
   timelineContent: {
     flex: 3,
     padding: "6px 16px",
+    margin: "15px",
   },
   paper: {
-    padding: "2px 5px",
-    borderRadius: "12px"
-  
+    // padding: "2px 5px",
+    borderRadius: "12px",
+    padding: "15px",
   },
   opositeItem: {
     flex: 1,
@@ -52,14 +53,18 @@ const WorkExperience = (props) => {
     <Grid container className={classes.root} key={Math.random()}>
       {isMobile ? (
         <Grid item>
-          <Typography variant="h6" align="center" style={{fontWeight:'bold'}}>
+          <Typography
+            variant="h6"
+            align="center"
+            style={{ fontWeight: "bold" }}
+          >
             Experience
           </Typography>
           {personalInfo.jobs.map((job) => (
             <Timeline key={job.id}>
               <TimelineItem classes={{ root: classes.missingOppositeContent }}>
                 <TimelineSeparator>
-                  <TimelineDot  color="primary" />
+                  <TimelineDot color="primary" />
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
@@ -68,9 +73,15 @@ const WorkExperience = (props) => {
                       {job.year.start} - {job.year.end}
                     </Box>
                   </Typography>
-                  <Typography variant="caption" style={{fontWeight:'bold'}}>{job.company}</Typography>
+                  <Typography variant="caption" style={{ fontWeight: "bold" }}>
+                    {job.company}
+                  </Typography>
                   <Paper elevation={3} className={classes.paper}>
-                    <Typography variant="body1" color="primary" style={{fontWeight:'bold'}}>
+                    <Typography
+                      variant="body1"
+                      color="primary"
+                      style={{ fontWeight: "bold" }}
+                    >
                       {job.title}
                     </Typography>
                     {job.description.map((job) => (
@@ -91,7 +102,11 @@ const WorkExperience = (props) => {
         </Grid>
       ) : (
         <Grid item>
-          <Typography variant="h5" align="center" style={{fontWeight:'bold'}}>
+          <Typography
+            variant="h5"
+            align="center"
+            style={{ fontWeight: "bold" }}
+          >
             Experience
           </Typography>
           <Timeline>
@@ -100,7 +115,7 @@ const WorkExperience = (props) => {
                 <TimelineOppositeContent
                   classes={{ root: classes.opositeItem }}
                 >
-                  <Box >
+                  <Box>
                     <Typography variant="caption">
                       <Box>
                         {job.year.start} - {job.year.end}
@@ -110,14 +125,20 @@ const WorkExperience = (props) => {
                   </Box>
                 </TimelineOppositeContent>
                 <TimelineSeparator>
-                  <TimelineDot color="primary" variant='outlined'>
+                  <TimelineDot color="primary" variant="outlined">
                     <WorkIcon />
                   </TimelineDot>
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent classes={{ root: classes.timelineContent }}>
                   <Paper elevation={3} className={classes.paper}>
-                    <Typography variant="body1" style={{fontWeight:'bold'}} color='primary'>{job.title}</Typography>
+                    <Typography
+                      variant="body1"
+                      style={{ fontWeight: "bold" }}
+                      color="primary"
+                    >
+                      {job.title}
+                    </Typography>
                     {job.description.map((job) => (
                       <Typography variant="body1" key={Math.random()}>
                         {job}

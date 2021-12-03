@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Zoom } from "@material-ui/core";
-import Avatar from "@material-ui/core/Avatar";
+//import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -8,9 +8,9 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import PhoneIcon from "@material-ui/icons/Phone";
 import React from "react";
-import { personalInfo } from "../../../assets/data/personalInfo";
-import pozaprf from "../../../assets/images/SAVE_20200220_103120.jpg";
-import ResumeBtn from "../../UI/ResumeBtn";
+import { personalInfo } from "../assets/data/personalInfo";
+//import pozaprf from "../../../assets/images/SAVE_20200220_103120.jpg";
+//import ResumeBtn from "../../UI/ResumeBtn";
 //import Resume from "../Resume/Resume";
 
 const useStyles = makeStyles((theme) => ({
@@ -41,6 +41,11 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(10),
     height: theme.spacing(10),
   },
+  titleHeader: {
+    // display: "flex",
+    // justifyContent: "center",
+    fontWeight: 700,
+  },
 }));
 
 const AboutMe = ({ isMobile }) => {
@@ -60,19 +65,17 @@ const AboutMe = ({ isMobile }) => {
           {personalInfo.personalProfile.map((profile) => (
             <Grid container key={Math.random()} className={classes.root}>
               <Grid item className={classes.rootItems}>
-                <Avatar
-                  alt="profile picture"
-                  variant="circular"
-                  src={pozaprf}
-                  className={isMobile ? classes.avatarMid : classes.avatarLarge}
-                />
-                <Typography variant={isMobile ? "h5" : "h4"}>
+                {/* // */}
+                {/* <Typography variant={isMobile ? "h5" : "h4"}>
                   {profile.firstName} {profile.lastName}
                 </Typography>
                 <Typography variant={isMobile ? "h6" : "h5"}>
-                  {profile.occupation}
-                </Typography>
-                <Box sx={{ mt: 10, mb: 10, width: "80%" }}>
+                  Contact Me
+                </Typography> */}
+                <Typography variant="h4" className={classes.titleHeader}>
+                  Contact Me
+                </Typography>{" "}
+                {/* <Box sx={{ mt: 10, mb: 10, width: "80%" }}>
                   <Typography
                     align="center"
                     variant={isMobile ? "body1" : "h6"}
@@ -84,13 +87,15 @@ const AboutMe = ({ isMobile }) => {
                     to ensure maximum accessibility, user experience, and
                     usability.
                   </Typography>
-                  {/* <Typography
-                    align="center"
-                    variant={isMobile ? "body1" : "h6"}
-                  >
-                    My coding skills are: JavaScript, Typescript React, Next.JS,
-                    HTML,CSS, and PostgreSQL.
-                  </Typography> */}
+                  {
+                    <Typography
+                      align="center"
+                      variant={isMobile ? "body1" : "h6"}
+                    >
+                      My coding skills are: JavaScript, Typescript React,
+                      Next.JS, HTML,CSS, and PostgreSQL.
+                    </Typography>
+                  }
                   <Typography
                     align="center"
                     variant={isMobile ? "body1" : "h6"}
@@ -99,7 +104,7 @@ const AboutMe = ({ isMobile }) => {
                     environment and to improve my abilities in a professional
                     setting.
                   </Typography>
-                </Box>
+                </Box> */}
               </Grid>
               <Grid item>
                 <Box>
@@ -146,7 +151,7 @@ const AboutMe = ({ isMobile }) => {
                 >
                   <LinkedInIcon color="primary" />
                 </IconButton>
-                <ResumeBtn />
+                {/* <ResumeBtn /> */}
               </Grid>
             </Grid>
           ))}
