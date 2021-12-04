@@ -17,10 +17,10 @@ import { makeStyles } from "@material-ui/core/styles";
 //import { useMediaQuery } from "@material-ui/core";
 import GitHub from "@material-ui/icons/GitHub";
 import OpenInNewIcon from "@material-ui/icons/OpenInNew";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { personalInfo } from "../../../assets/data/personalInfo";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 const useStyles = makeStyles({
   root: {
     // height: "100vh",
@@ -61,7 +61,32 @@ const useStyles = makeStyles({
 });
 
 const Portfolio = () => {
-  const [projDet, setProjDet] = useState(false);
+  const [despState, setDespState] = useState(personalInfo.projects);
+  useEffect(() => {}, [despState]);
+  console.log(despState, "updated..................................");
+  const handleStateChange = (incoming) => {
+    // alert(incoming);
+
+    let new_array = despState.map((element) =>
+      element.id === incoming
+        ? { ...element, isOpen: !element.isOpen }
+        : element
+    );
+    setDespState(new_array);
+
+    /*    setDespState([...despState,despState[incoming]: {...despState.despState[incoming],isOpen=!isOpen}]);
+     */
+  };
+  /* setDespState((props) => {
+      props.map((item) => {
+        if (item.id === incoming) {
+          item.isOpen = !item.isOpen;
+          console.log("found", item.isOpen, item);
+          return item;
+        } else return item;
+      });
+      return props;
+    });*/
   //console.log(projDet);
   const classes = useStyles();
   return (
@@ -75,69 +100,95 @@ const Portfolio = () => {
             </Typography>{" "}
             <Box className={classes.cardContainer}>
               {personalInfo.projects.map((project) => (
-                <Card
-                  className={classes.cardRoot}
-                  elevation={3}
-                  key={project.title}
-                >
-                  <CardHeader title={project.title} />
-                  <CardActionArea>
-                    <CardMedia
-                      className={classes.media}
-                      image={project.image}
-                      title={project.title}
-                    />
-                  </CardActionArea>
-                  <Grid
-                    container
-                    spacing={0}
-                    direction="column"
-                    alignItems="center"
-                    justifyContent="center"
+                <div>
+                  <Card
+                    className={classes.cardRoot}
+                    elevation={3}
+                    key={project.title}
                   >
-                    <Button
-                      style={{
-                        maxWidth: "60px",
-                        maxHeight: "15px",
-                        minWidth: "30px",
-                        minHeight: "15px",
-                      }}
-                      size="small"
-                      variant="contained"
-                      rounded="true"
-                      color="secondary"
-                      onClick={() => setProjDet((props) => !props)}
+                    <CardHeader title={project.title} />
+                    <CardActionArea>
+                      <CardMedia
+                        className={classes.media}
+                        image={project.image}
+                        title={project.title}
+                      />
+                    </CardActionArea>
+                    <Grid
+                      container
+                      spacing={0}
+                      direction="column"
+                      alignItems="center"
+                      justifyContent="center"
                     >
-                      <KeyboardArrowDownIcon></KeyboardArrowDownIcon>
-                    </Button>
-                  </Grid>{" "}
-                  <Grid component={Box} display={projDet ? "block" : "none"}>
-                    <Paper elevation={3}>
-                      <Typography style={{ margin: "10px" }}>
-                        {" "}
-                        {project.description}
-                      </Typography>
-                    </Paper>
-                  </Grid>
-                  <CardActions className={classes.cardActionBtn}>
-                    <IconButton
-                      size="small"
-                      color="primary"
-                      href={project.url}
-                      target="_blank"
+                      <Button
+                        style={{
+                          maxWidth: "60px",
+                          maxHeight: "15px",
+                          minWidth: "30px",
+                          minHeight: "15px",
+                          display: despState[project.id].isOpen
+                            ? "none"
+                            : "flex",
+                        }}
+                        size="small"
+                        variant="contained"
+                        rounded="true"
+                        color="secondary"
+                        onClick={() => handleStateChange(project.id)}
+                      >
+                        <KeyboardArrowDownIcon></KeyboardArrowDownIcon>
+                      </Button>
+                      <Button
+                        style={{
+                          maxWidth: "60px",
+                          maxHeight: "15px",
+                          minWidth: "30px",
+                          minHeight: "15px",
+                          display: despState[project.id].isOpen
+                            ? "flex"
+                            : "none",
+                        }}
+                        size="small"
+                        variant="contained"
+                        rounded="true"
+                        color="secondary"
+                        onClick={() => handleStateChange(project.id)}
+                      >
+                        <KeyboardArrowUpIcon></KeyboardArrowUpIcon>
+                      </Button>
+                    </Grid>{" "}
+                    <Grid
+                      component={Box}
+                      display={despState[project.id].isOpen ? "block" : "none"}
                     >
-                      <OpenInNewIcon fontSize="small" />
-                    </IconButton>
-                    <IconButton
-                      size="small"
-                      color="primary"
-                      href={project.githubUrl}
-                      target="_blank"
-                    >
-                      <GitHub />
-                    </IconButton>
-                  </CardActions>
-                </Card>
+                      <Paper elevation={3}>
+                        <Typography style={{ margin: "10px" }}>
+                          {" "}
+                          {project.description}
+                        </Typography>
+                      </Paper>
+                    </Grid>
+                    <CardActions className={classes.cardActionBtn}>
+                      <IconButton
+                        size="small"
+                        color="primary"
+                        href={project.url}
+                        target="_blank"
+                      >
+                        <OpenInNewIcon fontSize="small" />
+                      </IconButton>
+                      <IconButton
+                        size="small"
+                        color="primary"
+                        href={project.githubUrl}
+                        target="_blank"
+                      >
+                        <GitHub />
+                      </IconButton>
+                    </CardActions>
+                  </Card>
+                </div>
               ))}
             </Box>
           </Grid>
