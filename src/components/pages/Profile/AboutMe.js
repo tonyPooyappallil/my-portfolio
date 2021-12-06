@@ -8,6 +8,7 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import PhoneIcon from "@material-ui/icons/Phone";
 import React from "react";
+import ReactVisibilitySensor from "react-visibility-sensor";
 import { personalInfo } from "../../../assets/data/personalInfo";
 import pozaprf from "../../../assets/images/SAVE_20200220_103120.jpg";
 import ResumeBtn from "../../UI/ResumeBtn";
@@ -43,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AboutMe = ({ isMobile }) => {
+const AboutMe = ({ visibilityFunction, isMobile }) => {
   const classes = useStyles();
 
   const onClickHandler = (e) => {
@@ -66,9 +67,15 @@ const AboutMe = ({ isMobile }) => {
                   src={pozaprf}
                   className={isMobile ? classes.avatarMid : classes.avatarLarge}
                 />
-                <Typography variant={isMobile ? "h5" : "h4"}>
-                  {profile.firstName} {profile.lastName}
-                </Typography>
+                <ReactVisibilitySensor
+                  onChange={(visibility) => {
+                    visibility && visibilityFunction("/");
+                  }}
+                >
+                  <Typography variant={isMobile ? "h5" : "h4"}>
+                    {profile.firstName} {profile.lastName}
+                  </Typography>
+                </ReactVisibilitySensor>{" "}
                 <Typography variant={isMobile ? "h6" : "h5"}>
                   {profile.occupation}
                 </Typography>

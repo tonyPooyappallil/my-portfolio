@@ -19,6 +19,8 @@ import DarkModeSwitch from "./components/UI/DarkModeSwitch";
 import MenuBtn from "./components/UI/MenuBtn";
 //import Footer from "./components/pages/Footer";
 import ContactMe from "./components/ContactMe";
+import ReactVisibilitySensor from "react-visibility-sensor";
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -77,10 +79,14 @@ const App = () => {
     },
   });
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
+  const history = useHistory();
   const handleOpenMenu = (e) => {
     setOpen(!open);
   };
+
+  function visibilityFunction(caller) {
+    history.push(caller);
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -119,27 +125,50 @@ const App = () => {
                 setDarkmode={setDarkmode}
                 darkMode={darkMode}
               />
-            </Box>
-
+            </Box>{" "}
             <div ref={aboutRef}>
-              {" "}
-              <AboutMe isMobile={isMobile} />
+              <ReactVisibilitySensor
+                onChange={(visibility) => {
+                  visibility && visibilityFunction("/");
+                }}
+              >
+                <AboutMe
+                  visibilityFunction={visibilityFunction}
+                  isMobile={isMobile}
+                />
+              </ReactVisibilitySensor>{" "}
             </div>
             <div style={{ marginTop: "100px" }} ref={bioRef}>
-              <Resume />
+              <ReactVisibilitySensor
+                onChange={(visibility) => {
+                  visibility && visibilityFunction("/resume");
+                }}
+              >
+                <Resume />
+              </ReactVisibilitySensor>{" "}
             </div>
             <div style={{ marginTop: "100px" }} ref={portfolioRef}>
-              <Portfolio />
+              <ReactVisibilitySensor
+                onChange={(visibility) => {
+                  visibility && visibilityFunction("/portfolio");
+                }}
+              >
+                <Portfolio />
+              </ReactVisibilitySensor>{" "}
             </div>
-
             <div
               style={{ marginTop: "100px", marginBottom: "30px" }}
               ref={contactRef}
             >
               {" "}
-              <ContactMe></ContactMe>
+              <ReactVisibilitySensor
+                onChange={(visibility) => {
+                  visibility && visibilityFunction("/ContactMe");
+                }}
+              >
+                <ContactMe></ContactMe>
+              </ReactVisibilitySensor>{" "}
             </div>
-
             {/* <Footer></Footer> */}
           </Grid>
           <MenuBtn onClick={handleOpenMenu} isMobile={isMobile} open={open} />

@@ -63,31 +63,15 @@ const useStyles = makeStyles({
 const Portfolio = () => {
   const [despState, setDespState] = useState(personalInfo.projects);
   useEffect(() => {}, [despState]);
-  console.log(despState, "updated..................................");
   const handleStateChange = (incoming) => {
-    // alert(incoming);
-
     let new_array = despState.map((element) =>
       element.id === incoming
         ? { ...element, isOpen: !element.isOpen }
         : element
     );
     setDespState(new_array);
-
-    /*    setDespState([...despState,despState[incoming]: {...despState.despState[incoming],isOpen=!isOpen}]);
-     */
   };
-  /* setDespState((props) => {
-      props.map((item) => {
-        if (item.id === incoming) {
-          item.isOpen = !item.isOpen;
-          console.log("found", item.isOpen, item);
-          return item;
-        } else return item;
-      });
-      return props;
-    });*/
-  //console.log(projDet);
+
   const classes = useStyles();
   return (
     <>
