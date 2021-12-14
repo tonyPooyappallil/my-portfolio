@@ -168,8 +168,8 @@ const Portfolio = () => {
                                 key={Math.random()}
                                 label={lang}
                                 variant="outlined"
-                                color="secondary"
-                                style={{ margin: "5px" }}
+                                // color="secondary"
+                                style={{ margin: "5px", color: "#F18865" }}
                                 classes={{ root: classes.chip }}
                               />
                             ))}
