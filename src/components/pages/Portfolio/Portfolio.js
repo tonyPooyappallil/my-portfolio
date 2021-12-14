@@ -21,6 +21,7 @@ import React, { useEffect, useState } from "react";
 import { personalInfo } from "../../../assets/data/personalInfo";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { Chip } from "@mui/material";
 const useStyles = makeStyles({
   root: {
     // height: "100vh",
@@ -152,6 +153,29 @@ const Portfolio = () => {
                           {project.description}
                         </Typography>
                       </Paper>
+                      {personalInfo.skills.codingSkills.map((skill) => (
+                        <Box key={skill.id} className={classes.items}>
+                          <Paper>
+                            <Typography
+                              variant="h6"
+                              style={{ marginLeft: "10px" }}
+                            >
+                              {" "}
+                              Tech Stack
+                            </Typography>
+                            {project.toolsUsed.map((lang) => (
+                              <Chip
+                                key={Math.random()}
+                                label={lang}
+                                variant="outlined"
+                                color="secondary"
+                                style={{ margin: "5px" }}
+                                classes={{ root: classes.chip }}
+                              />
+                            ))}
+                          </Paper>
+                        </Box>
+                      ))}
                     </Grid>
                     <CardActions className={classes.cardActionBtn}>
                       <IconButton
