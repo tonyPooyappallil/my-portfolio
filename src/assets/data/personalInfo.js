@@ -3,7 +3,7 @@ export const personalInfo = {
     {
       firstName: "Antony",
       lastName: "Chacko",
-      occupation: "Learner | Full-Stack Web Developer",
+      occupation: "Full-Stack Web Developer",
       city: "Bengaluru",
       country: "India",
       email: "antony101tony@gmail.com",
@@ -22,19 +22,18 @@ export const personalInfo = {
       speciality: `Full-Stack Web Developement`,
       city: "Bangalore",
       year: {
-        start: "May 2021 ",
-        end: "Present",
+        start: "June 2021 ",
+        end: "January 2022",
       },
     },
     {
       id: 2,
-      schoolName: `Saintgits College of Engineering`,
+      schoolName: `Capital University Jharkhand`,
       degree: `B.Tech`,
       speciality: `Electronics and Instrumentation`,
-      city: "Kottayam",
+      city: "Koderma",
       year: {
-        start: "2014",
-        end: "2018",
+        end: "August 2021",
       },
     },
   ],
@@ -42,6 +41,22 @@ export const personalInfo = {
   jobs: [
     {
       id: "job1",
+      title: "Full-Stack Web Developer",
+      company: "Tracxn Technologies",
+      year: {
+        start: "Feb 2022",
+        end: "Present",
+      },
+      city: "Bangalore",
+      description: [
+        "Development of both FrontEnd and Backend for the various features offered by the company website",
+        "Ananlyzed, Designed and Developed 20+ requirements from product team",
+        "Debugged and fixed 30+ bugs",
+        "Refactured and optimised code for a major feature",
+      ],
+    },
+    {
+      id: "job2",
       title: "Quality Controller",
       company: "ENCONPASS",
       year: {

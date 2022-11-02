@@ -99,7 +99,8 @@ const Education = (props) => {
               <TimelineOppositeContent classes={{ root: classes.opositeItem }}>
                 <Typography variant="caption">
                   <Box>
-                    {school.year.start} - {school.year.end}
+                    {school.year.start} {school.year.start ? "-" : ""}
+                    {school.year.end}
                   </Box>
                 </Typography>
               </TimelineOppositeContent>
