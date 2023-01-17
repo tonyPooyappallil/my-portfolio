@@ -45,7 +45,7 @@ export const personalInfo = {
       company: "Tracxn Technologies",
       year: {
         start: "Feb 2022",
-        end: "Present",
+        end: "Nov 2022",
       },
       city: "Bangalore",
       description: [
