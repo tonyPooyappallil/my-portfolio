@@ -1,3 +1,4 @@
+import forcalclogo from '../images/forcalclogo.png'
 export const personalInfo = {
   personalProfile: [
     {
@@ -186,6 +187,26 @@ export const personalInfo = {
   projects: [
     {
       id: 0,
+      title: 'ForCalc',
+      githubUrl: 'https://github.com/tonyPooyappallil/fortnightWorkHours',
+      url: 'https://fortnightworkhours.netlify.app//',
+      image: forcalclogo,
+      description: `ForCalc is a simple web application I created during my Master’s 
+      studies to help international students in Australia who work multiple part-time jobs. 
+      It allows them to easily track their fortnightly work hours so they can stay within the 
+      limits required for student visa compliance.`,
+      isOpen: false,
+      toolsUsed: [
+        'React JS',
+        'HTML5',
+        'CSS3',
+        'JavaScript',
+        'Firebase Db',
+        'Firebase Authentication'
+      ]
+    },
+    {
+      id: 1,
       title: 'Ecogenic',
       githubUrl: 'https://github.com/stockchandu/Project-Ecogenic',
       url: 'https://ecogenic-life.netlify.app/',
@@ -206,7 +227,7 @@ export const personalInfo = {
       ]
     },
     {
-      id: 1,
+      id: 2,
       title: 'HealthKart Clone',
       githubUrl: 'https://github.com/hramdas/HealthKart',
       url: 'https://heawealthy.netlify.app/index.html',
@@ -219,7 +240,7 @@ export const personalInfo = {
     },
 
     {
-      id: 2,
+      id: 3,
       title: 'Zulily Clone',
       githubUrl: 'https://github.com/tonyPooyappallil/ZulilyClone',
       url: 'https://zulily-clone.netlify.app/index.html',
