@@ -187,7 +187,7 @@ export const personalInfo = {
 
   projects: [
     {
-      id: -1,
+      id: 0,
       title: 'Scene Narrator AI',
       githubUrl: 'https://github.com/tonyPooyappallil/sceneNarratorAI',
       url: 'https://tonys-scenenarrator.netlify.app/',
@@ -210,7 +210,7 @@ export const personalInfo = {
       ]
     },
     {
-      id: 0,
+      id: 1,
       title: 'ForCalc',
       githubUrl: 'https://github.com/tonyPooyappallil/fortnightWorkHours',
       url: 'https://fortnightworkhours.netlify.app//',
@@ -230,7 +230,7 @@ export const personalInfo = {
       ]
     },
     {
-      id: 1,
+      id: 2,
       title: 'Ecogenic',
       githubUrl: 'https://github.com/stockchandu/Project-Ecogenic',
       url: 'https://ecogenic-life.netlify.app/',
@@ -251,7 +251,7 @@ export const personalInfo = {
       ]
     },
     {
-      id: 2,
+      id: 3,
       title: 'HealthKart Clone',
       githubUrl: 'https://github.com/hramdas/HealthKart',
       url: 'https://heawealthy.netlify.app/index.html',
@@ -264,7 +264,7 @@ export const personalInfo = {
     },
 
     {
-      id: 3,
+      id: 4,
       title: 'Zulily Clone',
       githubUrl: 'https://github.com/tonyPooyappallil/ZulilyClone',
       url: 'https://zulily-clone.netlify.app/index.html',
