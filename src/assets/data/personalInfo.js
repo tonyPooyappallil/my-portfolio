@@ -1,4 +1,5 @@
 import forcalclogo from '../images/forcalclogo.png'
+import scenenarratorailogo from '../images/scenenarratorailogo.png'
 export const personalInfo = {
   personalProfile: [
     {
@@ -185,6 +186,29 @@ export const personalInfo = {
   },
 
   projects: [
+    {
+      id: -1,
+      title: 'Scene Narrator AI',
+      githubUrl: 'https://github.com/tonyPooyappallil/sceneNarratorAI',
+      url: 'https://tonys-scenenarrator.netlify.app/',
+      image: scenenarratorailogo,
+      description: `Scene Narrator AI is a real-time accessibility tool that acts as "digital eyes" 
+      by transforming visual surroundings into natural audio descriptions for the visually impaired. 
+      Using Google’s Gemini 3 Flash, the app instantly analyzes camera feeds to identify obstacles, text, 
+      and environmental context with human-like reasoning. It is specifically optimized for mobile browsers 
+      to ensure seamless, low-latency narration on both iOS and Android devices without the need for a native app. 
+      This privacy-focused tool empowers users with greater independence by providing an immediate, audible understanding 
+      of the world around them.`,
+      isOpen: false,
+      toolsUsed: [
+        'React Native',
+        'TypeScript',
+        'Gemini AI',
+        'Expo',
+        'Netlify',
+        'Google Cloud'
+      ]
+    },
     {
       id: 0,
       title: 'ForCalc',
